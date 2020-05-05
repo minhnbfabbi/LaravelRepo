@@ -74,7 +74,7 @@
                 var user = self.user;
                 axios.post('/api/register', user)
                     .then(function(res) {
-                        console.log(res);
+                        self.$router.push('/login');
                     })
                     .catch(function(err) {
                         console.log(err);

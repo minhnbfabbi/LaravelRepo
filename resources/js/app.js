@@ -10,8 +10,11 @@ window.Vue = require('vue');
 
 import VueRouter from 'vue-router'
 import { routes }  from './index';
+import i18n from './i18n';
+import store from './store';
 
 Vue.use(VueRouter)
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -24,7 +27,7 @@ Vue.use(VueRouter)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('login', require('./components/Login.vue').default);
+Vue.component('app-header', require('./components/Header.vue').default);
 
 const router = new VueRouter({
     mode: 'hash',
@@ -39,5 +42,9 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    i18n,
+    store: store
 });
+
+export default app;
