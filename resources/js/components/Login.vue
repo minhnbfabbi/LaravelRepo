@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <form v-on:submit="authenticate()">
+                    <form v-on:submit.prevent="authenticate()">
                         <div class="card-header">{{ $t('login.title') }}</div>
 
                         <div class="card-body">
@@ -62,7 +62,7 @@
             }
         },
         methods: {
-            authenticate() {
+            authenticate(e) {
                 var self = this;
                 var user = self.user;
 
@@ -113,19 +113,22 @@
                     for(var msg in errors[error]) {
                         switch(errors[error][msg]) {
                             case 'email_invalid':
-                                self.errors.push(self.$t('login.errors.email_invalid'));
+                                self.errors.push(self.$t('common.form_validation.errors.email_invalid'));
                                 break;
                             case 'email_required':
-                                self.errors.push(self.$t('login.errors.email_required'));
+                                self.errors.push(self.$t('common.form_validation.errors.email_required'));
+                                break;
+                            case 'email_unique':
+                                self.errors.push(self.$t('common.form_validation.errors.email_unique'));
                                 break;
                             case 'password_invalid':
-                                self.errors.push(self.$t('login.errors.password_invalid'));
+                                self.errors.push(self.$t('common.form_validation.errors.password_invalid'));
                                 break;
                             case 'password_incorrect':
-                                self.errors.push(self.$t('login.errors.password_incorrect'));
+                                self.errors.push(self.$t('common.form_validation.errors.password_incorrect'));
                                 break;
                             case 'password_required':
-                                self.errors.push(self.$t('login.errors.password_required'));
+                                self.errors.push(self.$t('common.form_validation.errors.password_required'));
                                 break;
                         }
                     }

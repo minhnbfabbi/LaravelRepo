@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/{path}', function () {
     return view('index');
-});
+})->where('path', '(.*)');
 
-Auth::routes();
+Route::get('user/{name?}', function($name = 'Minh') {
+	return $name;
+});
 
 // Route::get('/', 'HomeController@index')->name('index');
 // Route::get('/login', 'Auth\LoginController@index')->name('Login');

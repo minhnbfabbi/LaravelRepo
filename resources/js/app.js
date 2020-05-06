@@ -12,6 +12,7 @@ import VueRouter from 'vue-router'
 import { routes }  from './index';
 import i18n from './i18n';
 import store from './store';
+import auth from './auth';
 
 Vue.use(VueRouter)
 
@@ -30,8 +31,25 @@ Vue.use(VueRouter)
 Vue.component('app-header', require('./components/Header.vue').default);
 
 const router = new VueRouter({
-    mode: 'hash',
+    mode: 'history',
     routes
+})
+
+router.beforeEach((to, from, next) => {
+	console.log("router run");
+	console.log(to);
+	if(!['Login', 'Register'].includes(to.name)) {
+		auth.checkAuth();
+	} else {
+		auth.setAuthEmpty();
+	}
+	var dashboardVisbleLink = false;
+	if(to.name == 'Dashboard') {
+		dashboardVisbleLink = true;
+	} 
+	console.log(store);
+	store.dispatch('setDashboardVisibleLink', dashboardVisbleLink);
+	next();
 })
 
 /**

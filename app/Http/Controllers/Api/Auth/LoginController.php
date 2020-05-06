@@ -57,6 +57,26 @@ class LoginController extends Controller
         return response()->json(auth()->user());
     }
     
+    public function checkAuth()
+    {
+        $auth = [
+            'check' => false,
+            'username' => ''
+        ];
+
+        if(auth()->check()) {
+            
+            $user = auth()->user();
+
+            $auth = [
+                'auth' => true,
+                'username' => $user->name
+            ];
+        }
+
+        return response()->json($auth);
+    }
+
     /**
      * Log the user out (Invalidate the token).
      *

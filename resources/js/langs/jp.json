@@ -1,10 +1,27 @@
 {
   "common": {
-    "select_lang": "言語",
-    "back_to_login": "ログインページに戻る"
+    "select_lang": "テストページ",
+    "back_to_login": "ログインページに戻る",
+    "form_validation": {
+      "errors": {
+        "email_invalid": "メールの形式が正しくありません",
+        "email_required": "メールが必要",
+        "email_unique": "メールが重複しています",
+        "password_invalid": "パスワードの形式が正しくありません。少なくとも1つの大文字と1つの数字を含むには8文字が必要です",
+        "password_incorrect": "パスワードが違います",
+        "password_required": "パスワードが必要"
+      }
+    }
   },
   "header": {
-    "title": "言語を変更"
+    "title": "テストページ",
+    "navigations": {
+      "login": "ログインする",
+      "logout": "ログアウト",
+      "register": "サインアップ",
+      "greeting": "こんにちは",
+      "return_dashboard": "管理ページに移動"
+    }
   },
   "login": {
     "title": "システムにログイン",
@@ -17,17 +34,31 @@
     },
     "messages": {
       "register": "サインアップ"
+    }
+  },
+  "register": {
+    "title": "システムに登録する",
+    "buttons": {
+      "register": "サインアップ"
     },
-    "errors": {
-      "email_invalid": "メールの形式が正しくありません",
-      "email_required": "メールが必要",
-      "password_invalid": "パスワードが不正です",
-      "password_incorrect": "パスワードが違います",
-      "password_required": "パスワードが必要"
+    "input_text": {
+      "name": "氏名",
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "password_confirmation": "パスワードの確認"
+    },
+    "messages": {
+      "register_success": "登録に成功しました"
     }
   },
   "dashboard": {
     "title": "ダッシュボード",
-    "content": "ダッシュボードのコンテンツ"
+    "content": "ログインしているユーザー情報",
+    "user": {
+      "name": "氏名",
+      "email": "電子メール",
+      "created_at": "作成日",
+      "updated_at": "更新日"
+    }
   }
 }

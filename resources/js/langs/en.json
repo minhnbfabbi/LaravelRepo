@@ -1,10 +1,27 @@
 {
   "common": {
-    "select_lang": "Language",
-    "back_to_login": "Return to the login page"
+    "select_lang": "Test page",
+    "back_to_login": "Return to the login page",
+    "form_validation": {
+      "errors": {
+        "email_invalid": "Email invalidate",
+        "email_required": "Email required",
+        "email_unique": "Email is duplicated",
+        "password_invalid": "Password is malformed, requires 8 characters to contain at least 1 uppercase letter and 1 number",
+        "password_incorrect": "Password incorrect",
+        "password_required": "Password required"
+      }
+    }
   },
   "header": {
-    "title": "Change Language"
+    "title": "Test page",
+    "navigations": {
+      "login": "Login",
+      "logout": "Logout",
+      "register": "Register",
+      "greeting": "Hello",
+      "return_dashboard": "Return to dashboard"
+    }
   },
   "login": {
     "title": "Log in to system",
@@ -17,17 +34,31 @@
     },
     "messages": {
       "register": "Sign Up"
+    }
+  },
+  "register": {
+    "title": "Register",
+    "buttons": {
+      "register": "Register"
     },
-    "errors": {
-      "email_invalid": "Email invalidate",
-      "email_required": "Email required",
-      "password_invalid": "Password is malformed",
-      "password_incorrect": "Password incorrect",
-      "password_required": "Password required"
+    "input_text": {
+      "name": "Full name",
+      "email": "Email Address",
+      "password": "Password",
+      "password_confirmation": "Password Confirmation"
+    },
+    "messages": {
+      "register_success": "Register Success"
     }
   },
   "dashboard": {
     "title": "Dashboard",
-    "content": "Dashboard Content"
+    "content": "User information logged in",
+    "user": {
+      "name": "Full name",
+      "email": "Email",
+      "created_at": "Created At",
+      "updated_at": "Updated At"
+    }
   }
 }
