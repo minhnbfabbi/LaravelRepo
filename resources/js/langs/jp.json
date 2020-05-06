@@ -1,0 +1,33 @@
+{
+  "common": {
+    "select_lang": "言語",
+    "back_to_login": "ログインページに戻る"
+  },
+  "header": {
+    "title": "言語を変更"
+  },
+  "login": {
+    "title": "システムにログイン",
+    "buttons": {
+      "login": "ログインする"
+    },
+    "input_text": {
+      "email": "電子メール",
+      "password": "パスワード"
+    },
+    "messages": {
+      "register": "サインアップ"
+    },
+    "errors": {
+      "email_invalid": "メールの形式が正しくありません",
+      "email_required": "メールが必要",
+      "password_invalid": "パスワードが不正です",
+      "password_incorrect": "パスワードが違います",
+      "password_required": "パスワードが必要"
+    }
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "content": "ダッシュボードのコンテンツ"
+  }
+}

@@ -22,4 +22,6 @@ Route::group(['middleware' => 'api', 'namespace' => 'Api\Auth', 'as' => 'api.'],
     // Route::resource('Login', 'LoginController', ['except' => []]);
     Route::post('authenticate', 'LoginController@authenticate')->name('authenticate');
     Route::post('register', 'RegisterController@create')->name('register');
+    Route::get('logout', 'LoginController@logout')->name('logout');
+    Route::get('home', 'LoginController@home')->name('home');
 });

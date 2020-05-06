@@ -1,0 +1,33 @@
+{
+  "common": {
+    "select_lang": "Ngôn ngữ",
+    "back_to_login": "Quay lại trang đăng nhập"
+  },
+  "header": {
+    "title": "Đổi ngôn ngữ"
+  },
+  "login": {
+    "title": "Đăng nhập vào hệ thống",
+    "buttons": {
+      "login": "Đăng nhập"
+    },
+    "input_text": {
+      "email": "Địa chỉ gmail",
+      "password": "Mật khẩu"
+    },
+    "messages": {
+      "register": "Đăng ký"
+    },
+    "errors": {
+      "email_invalid": "Email không đúng định dạng",
+      "email_required": "Email là bắt buộc",
+      "password_invalid": "Password không đúng định dạng",
+      "password_incorrect": "Password không đúng",
+      "password_required": "Password là bắt buộc"
+    }
+  },
+  "dashboard": {
+    "title": "Trang quản trị",
+    "content": "Nội dung trang quản trị"
+  }
+}

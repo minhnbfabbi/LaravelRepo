@@ -1,0 +1,33 @@
+{
+  "common": {
+    "select_lang": "Language",
+    "back_to_login": "Return to the login page"
+  },
+  "header": {
+    "title": "Change Language"
+  },
+  "login": {
+    "title": "Log in to system",
+    "buttons": {
+      "login": "Login"
+    },
+    "input_text": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "messages": {
+      "register": "Sign Up"
+    },
+    "errors": {
+      "email_invalid": "Email invalidate",
+      "email_required": "Email required",
+      "password_invalid": "Password is malformed",
+      "password_incorrect": "Password incorrect",
+      "password_required": "Password required"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "content": "Dashboard Content"
+  }
+}

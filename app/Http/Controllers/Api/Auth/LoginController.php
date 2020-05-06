@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Response;
+use Illuminate\Http\Request;
+use App\Http\Requests\Api\AuthenticateRequest;
 
 class LoginController extends Controller
 {
@@ -35,19 +38,25 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['authenticate']]);
+        $this->middleware('auth:api', ['except' => ['authenticate', 'logout']]);
     }
 
-    public function authenticate() 
+    public function authenticate(AuthenticateRequest $request) 
     {
-        $credentials = request(['email', 'password']);
+        $credentials = $request->only(['email', 'password']);
+
         if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return $this->respondErr(); 
         }
 
         return $this->respondWithToken($token);
     }
 
+    public function home() 
+    {
+        return response()->json(auth()->user());
+    }
+    
     /**
      * Log the user out (Invalidate the token).
      *
@@ -55,7 +64,9 @@ class LoginController extends Controller
      */
     public function logout()
     {
-        auth()->logout();
+        if(auth()->check()) {
+            auth()->logout();
+        }
 
         return response()->json(['message' => 'Successfully logged out']);
     }
@@ -69,10 +80,11 @@ class LoginController extends Controller
      */
     protected function respondWithToken($token)
     {
+        $timeExpires = auth()->factory()->getTTL() * 60;
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
+            'expires_in' => $timeExpires
+        ])->cookie('token' , $token, $timeExpires);
     }
 }
