@@ -1,10 +1,27 @@
 {
   "common": {
-    "select_lang": "Ngôn ngữ",
-    "back_to_login": "Quay lại trang đăng nhập"
+    "select_lang": "Trang thử nghiệm",
+    "back_to_login": "Quay lại trang đăng nhập",
+    "form_validation": {
+      "errors": {
+        "email_invalid": "Email không đúng định dạng",
+        "email_required": "Email là bắt buộc",
+        "email_unique": "Email bị trùng lặp",
+        "password_invalid": "Password không đúng định dạng, yêu cầu nhập 8 ký tự có ít nhất 1 ký tự chữ viết hoa và 1 số",
+        "password_incorrect": "Password không đúng",
+        "password_required": "Password là bắt buộc"
+      }
+    }
   },
   "header": {
-    "title": "Đổi ngôn ngữ"
+    "title": "Trang thử nghiệm",
+    "navigations": {
+      "login": "Đăng nhập",
+      "logout": "Đăng xuất",
+      "register": "Đăng ký",
+      "greeting": "Xin chào",
+      "return_dashboard": "Về trang quản trị"
+    }
   },
   "login": {
     "title": "Đăng nhập vào hệ thống",
@@ -17,17 +34,32 @@
     },
     "messages": {
       "register": "Đăng ký"
+    }
+    
+  },
+  "register": {
+    "title": "Đăng ký vào hệ thống",
+    "buttons": {
+      "register": "Đăng ký"
     },
-    "errors": {
-      "email_invalid": "Email không đúng định dạng",
-      "email_required": "Email là bắt buộc",
-      "password_invalid": "Password không đúng định dạng",
-      "password_incorrect": "Password không đúng",
-      "password_required": "Password là bắt buộc"
+    "input_text": {
+      "name": "Họ tên",
+      "email": "Địa chỉ email",
+      "password": "Mật khẩu",
+      "password_confirmation": "Xác nhận mật khẩu"
+    },
+    "messages": {
+      "register_success": "Đăng ký thành công"
     }
   },
   "dashboard": {
     "title": "Trang quản trị",
-    "content": "Nội dung trang quản trị"
+    "content": "Thông tin người dùng đã đăng nhập",
+    "user": {
+      "name": "Họ tên",
+      "email": "Email",
+      "created_at": "Ngày tạo",
+      "updated_at": "Ngày cập nhật"
+    }
   }
 }

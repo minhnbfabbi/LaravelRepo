@@ -24,4 +24,5 @@ Route::group(['middleware' => 'api', 'namespace' => 'Api\Auth', 'as' => 'api.'],
     Route::post('register', 'RegisterController@create')->name('register');
     Route::get('logout', 'LoginController@logout')->name('logout');
     Route::get('home', 'LoginController@home')->name('home');
+    Route::get('check-auth', 'LoginController@checkAuth')->name('check_auth');
 });
