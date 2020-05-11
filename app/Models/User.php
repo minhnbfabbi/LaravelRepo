@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -68,5 +68,10 @@ class User extends Authenticatable implements JWTSubject
     public function getUpdatedAtAttribute()
     {
         return Carbon::parse($this->attributes['updated_at'])->format('d-m-Y h:i:s');
+    }
+
+    public function notifies()
+    {
+        return $this->belongsToMany('App\Models\Notify', 'user_notify', 'notify_id', 'user_id');
     }
 }

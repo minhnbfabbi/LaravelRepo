@@ -25,8 +25,8 @@
     <rule ref="Generic.PHP.ForbiddenFunctions"/>
     <rule ref="Generic.PHP.LowerCaseConstant"/>
     <rule ref="Generic.PHP.NoSilencedErrors"/>
-    <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
-    <rule ref="Generic.WhiteSpace.ScopeIndent"/>
+    <!-- <rule ref="Generic.WhiteSpace.DisallowTabIndent"/> -->
+    <!-- <rule ref="Generic.WhiteSpace.ScopeIndent"/> -->
     <rule ref="MySource.PHP.EvalObjectFactory"/>
     <rule ref="PSR1.Classes.ClassDeclaration"/>
     <rule ref="PSR1.Files.SideEffects"/>

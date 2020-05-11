@@ -61,5 +61,15 @@
       "created_at": "Ngày tạo",
       "updated_at": "Ngày cập nhật"
     }
+  },
+  "create_notify": {
+    "title": "Tạo thông báo",
+    "buttons": {
+      "create": "Tạo"
+    },
+    "input_text": {
+      "title": "Tiêu đề",
+      "content": "Nội dung"
+    }
   }
 }

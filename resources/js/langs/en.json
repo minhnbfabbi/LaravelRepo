@@ -60,5 +60,15 @@
       "created_at": "Created At",
       "updated_at": "Updated At"
     }
+  },
+  "create_notify": {
+    "title": "Create Notify",
+    "buttons": {
+      "create": "Create"
+    },
+    "input_text": {
+      "title": "Title",
+      "content": "Content"
+    }
   }
 }

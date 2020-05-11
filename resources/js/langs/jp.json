@@ -60,5 +60,15 @@
       "created_at": "作成日",
       "updated_at": "更新日"
     }
+  },
+  "create_notify": {
+    "title": "通知を作成",
+    "buttons": {
+      "create": "作成する"
+    },
+    "input_text": {
+      "title": "題名",
+      "content": "コンテンツ"
+    }
   }
 }
