@@ -111,7 +111,7 @@ return [
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
+    'string' => ':attribute_invalid_string',
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => ':attribute_unique',
     'uploaded' => 'The :attribute failed to upload.',
