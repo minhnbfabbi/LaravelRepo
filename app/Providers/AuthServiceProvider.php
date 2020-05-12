@@ -27,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('create-notify', 'App\Policies\NotifyPolicy@create');
         Gate::define('store-notify', 'App\Policies\NotifyPolicy@store');
+        Gate::define('list-notify', 'App\Policies\NotifyPolicy@list');
         //
     }
 }

@@ -36,6 +36,9 @@
                         <div class="back-to-login">
                             <router-link :to="{path: '/login'}">{{ $t('common.back_to_login') }}</router-link>
                         </div>
+                        <div class="to-notifies">
+                            <router-link :to="{path: '/notifies/list'}">{{ $t('common.to_notifies') }}</router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,7 +65,7 @@
                 .catch(function(err) {
                     if(err.response.status) {
                         // alert(err.response.data.message);
-                        // self.$router.push('/login');
+                        self.$router.push('/login');
                     } 
                 });
         },

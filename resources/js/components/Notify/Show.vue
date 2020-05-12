@@ -18,6 +18,7 @@
 <script>
     export default {
         mounted() {
+
             var self = this;
             var id = self.$route.params.id;
             axios.get('/api/notifies/' + id)
@@ -32,7 +33,7 @@
                 })
                 .catch(function(err) {
                     if(err.response.status) {
-                        alert(err.response.data.message);
+                        // alert(err.response.data.message);
                         self.$router.push('/dashboard');
                     } 
                 });
@@ -49,6 +50,9 @@
         },
         methods: {
             
+        },
+        computed: {
+
         }
     }
 </script>

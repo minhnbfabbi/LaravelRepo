@@ -9,12 +9,20 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import { routes }  from './index';
 import i18n from './i18n';
 import store from './store';
 import auth from './auth';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(VueRouter)
+
+// Install BootstrapVue
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,6 +37,11 @@ Vue.use(VueRouter)
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('app-header', require('./components/Header.vue').default);
+Vue.component('pagination-custom', require('./components/Pagination.vue').default);
+
+// Set global variable
+Vue.prototype.$_apiUrl = '/api/';
+Vue.prototype.$_error = '';
 
 const router = new VueRouter({
     mode: 'history',
@@ -36,8 +49,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	console.log("router run");
-	console.log(to);
 	if(!['Login', 'Register'].includes(to.name)) {
 		auth.checkAuth();
 	} else {
@@ -47,7 +58,6 @@ router.beforeEach((to, from, next) => {
 	if(to.name == 'Dashboard') {
 		dashboardVisbleLink = true;
 	} 
-	console.log(store);
 	store.dispatch('setDashboardVisibleLink', dashboardVisbleLink);
 	next();
 })

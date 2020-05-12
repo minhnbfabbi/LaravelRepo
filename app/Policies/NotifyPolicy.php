@@ -5,10 +5,12 @@ namespace App\Policies;
 use App\Models\User;
 use App\Models\Notify;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use App\Traits\HandleCheckAuthorization;
 
 class NotifyPolicy
 {
     use HandlesAuthorization;
+    use HandleCheckAuthorization;
 
     /**
      * Create a new policy instance.
@@ -20,13 +22,18 @@ class NotifyPolicy
         
     }
 
+    public function list(User $user)
+    {
+        return $this->isAdmin($user);
+    }
+
     public function create(User $user)
     {
-        return $user->is_admin === 1;
+        return $this->isAdmin($user);
     }
 
     public function store(User $user)
     {
-        return $user->is_admin === 1;
+        return $this->isAdmin($user);
     }
 }

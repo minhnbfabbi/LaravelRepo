@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,15 +30,10 @@ Route::group(['middleware' => 'api', 'namespace' => 'Api', 'as' => 'api.'], func
 	Route::group(['middleware' => 'auth:api', 'namespace' => 'Admin'], function() {
 		Route::group(['prefix' => 'admin'], function() {
 			Route::get('notifies/create', 'NotifyController@create')->name('admin.notify.create');
+			Route::get('notifies/list', 'NotifyController@list')->name('admin.notify.list');
 			Route::post('notifies/store', 'NotifyController@store')->name('admin.notify.store');
 		});
 		Route::get('notifies/{id}', 'NotifyController@show')->where('id', '[0-9]+')->name('notify.show');
-	});
-	Route::get('mail-test', function() {
-		return Mail::send('emails.notify', ['title' => '', 'body'=>['link'=>'casc']], function($message) {
-                    $message->from('admin@base.com', 'Super Admin');
-                    $message->to('minhnb94.fabbi@gmail.com')->subject('Thông báo từ Admin');
-                });
 	});
 });
 

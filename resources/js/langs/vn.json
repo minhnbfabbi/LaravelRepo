@@ -2,6 +2,7 @@
   "common": {
     "select_lang": "Trang thử nghiệm",
     "back_to_login": "Quay lại trang đăng nhập",
+    "to_notifies": "Sang trang danh sách thông báo",
     "form_validation": {
       "errors": {
         "email_invalid": "Email không đúng định dạng",
@@ -71,5 +72,11 @@
       "title": "Tiêu đề",
       "content": "Nội dung"
     }
+  },
+  "list_notify": {
+    "table_title": {
+      "title": "Tiêu đề",
+      "Content": "Nội dung"
+    } 
   }
 }

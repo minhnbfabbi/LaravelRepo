@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Support\Jsonable;
 
-class Notify extends Model
+class Notify extends Model implements Jsonable
 {
     /**
      * The attributes that are mass assignable.
@@ -25,5 +26,10 @@ class Notify extends Model
     public function users()
     {
     	return $this->belongsToMany('App\Models\User', 'user_notify', 'user_id', 'notify_id');
+    }
+
+    public function paginationApi($page = 1, $limit = 3)
+    {
+        return $this->paginate($limit, ['*'], 'page', $page);
     }
 }

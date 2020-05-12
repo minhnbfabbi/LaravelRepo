@@ -35,6 +35,7 @@ class SendNotifyEmail implements ShouldQueue
     {
         $users = User::where('is_admin', false)->get();
         $link = env('APP_URL') . '/notifies/' . $this->notify->id;
+        
         $data = [
             'title'=> 'Nội dung thông báo',
             'body'=> [

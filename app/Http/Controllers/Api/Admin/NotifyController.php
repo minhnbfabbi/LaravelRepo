@@ -91,4 +91,10 @@ class NotifyController extends Controller
 
         return $this->model->find($notifyId);
     }
+
+    public function list(Request $request)
+    {
+        $page = isset($request->page) ? $request->page : 1;
+        return $this->model->paginationApi($page);        
+    }
 }

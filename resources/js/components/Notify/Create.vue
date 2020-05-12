@@ -42,13 +42,13 @@
     export default {
         mounted() {
             var self = this;
-            axios.get('/api/admin/notifies/create')
+            axios.get(this.$_apiUrl + 'admin/notifies/create')
                 .then(function(res) {
                     
                 })
                 .catch(function(err) {
                     if(err.response.status) {
-                        alert(err.response.data.error);
+                        // alert(err.response.data.error);
                         self.$router.push('/dashboard');
                     } 
                 });
@@ -65,9 +65,13 @@
             create() {
                 var self = this;
                 var data = self.data;
-                axios.post('/api/admin/notifies/store', data)
+                axios.post(this.$_apiUrl + 'admin/notifies/store', data)
                     .then(function(res) {
                         alert(self.$t('register.messages.register_success'));
+                        self.data = {
+                            title: '',
+                            content: ''
+                        }
                     })
                     .catch(function(err) {
                         if(err.response.status) {

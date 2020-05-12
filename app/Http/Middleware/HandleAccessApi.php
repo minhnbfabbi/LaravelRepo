@@ -24,6 +24,11 @@ class HandleAccessApi
                     return $this->respondErr('Forbidden', 403);
                 }
                 break;
+            case 'api.admin.notify.list':
+                if(!auth()->user()->can('list-notify')) {
+                    return $this->respondErr('Forbidden', 403);
+                }
+                break;
             case 'api.admin.notify.store':
                 if(!auth()->user()->can('store-notify')) {
                     return $this->respondErr('Forbidden', 403);
