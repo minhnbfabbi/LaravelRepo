@@ -32,8 +32,10 @@
 </template>
 
 <script>
+    import FireBase from '../firebase';
     export default {
         mounted() {
+            FireBase.listenToFirebase();
             console.log(this.$router.history.current.name);
         },
         data: function () {

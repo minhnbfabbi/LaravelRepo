@@ -28,10 +28,11 @@ Route::group(['middleware' => 'api', 'namespace' => 'Api', 'as' => 'api.'], func
 		Route::get('home', 'LoginController@home')->name('home');
 	});
 	Route::group(['middleware' => 'auth:api', 'namespace' => 'Admin'], function() {
-		Route::group(['prefix' => 'admin'], function() {
-			Route::get('notifies/create', 'NotifyController@create')->name('admin.notify.create');
-			Route::get('notifies/list', 'NotifyController@list')->name('admin.notify.list');
-			Route::post('notifies/store', 'NotifyController@store')->name('admin.notify.store');
+		Route::group(['prefix' => 'admin/notifies', 'name' => 'admin.notify'], function() {
+			Route::get('create', 'NotifyController@create')->name('create');
+			Route::get('list', 'NotifyController@list')->name('list');
+			Route::post('store', 'NotifyController@store')->name('store');
+			Route::get('users/list', 'NotifyController@userList')->name('users.list');
 		});
 		Route::get('notifies/{id}', 'NotifyController@show')->where('id', '[0-9]+')->name('notify.show');
 	});

@@ -3,6 +3,7 @@
     "select_lang": "Test page",
     "back_to_login": "Return to the login page",
     "to_notifies": "Go to the notification list page",
+    "create_notifies": "Go to the notification create page",
     "form_validation": {
       "errors": {
         "email_invalid": "Email invalidate",

@@ -39,6 +39,9 @@
                         <div class="to-notifies">
                             <router-link :to="{path: '/notifies/list'}">{{ $t('common.to_notifies') }}</router-link>
                         </div>
+                        <div class="create-notifies">
+                            <router-link :to="{path: '/notifies/create'}">{{ $t('common.create_notifies') }}</router-link>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,9 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public $bindings = [
+        \App\Services\Notification\INotificationService::class => \App\Services\Notification\FcmService::class
+    ];
     /**
      * Register any application services.
      *

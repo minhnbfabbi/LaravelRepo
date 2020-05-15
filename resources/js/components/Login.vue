@@ -40,11 +40,13 @@
 </template>
 
 <script>
+    import FireBase from '../firebase';
     export default {
         mounted() {
+            
             axios.get('/api/logout')
                 .then(function(res) {
-                    
+                    FireBase.deleteToken();
                 })
                 .catch(function(err) {
                     if(err.response.status) {
@@ -66,35 +68,33 @@
                 var self = this;
                 var user = self.user;
 
-                // if(this.validateEmpty(user) && this.error.length > 0) {
-                //     alert(this.error.join("\n"));
-                //     return false;
-                // }
-
-                axios.post('/api/authenticate', user)
-                    .then(function(res) {
-                        self.$router.push('/dashboard');
-                    })
-                    .catch(function(err) {
-                        if(err.response.status) {
-                            console.log(err.response);
-                            switch(err.response.status) {
-                                case 422:
-                                    if(err.response.data.errors) {
-                                        self.validateForm(err.response.data.errors);
-                                        alert(self.errors.join("\n"));
-                                    }
-                                    break;
-                                case 401:
-                                    alert(err.response.data.error);
-                                    break;
-                                default:
-                                    console.log("Undefined");
-                                    break;
-                            }
-                        } 
-                        self.errors = [];
-                    });
+                FireBase.setToken(function(token) {
+                    user.token = token;
+                    axios.post('/api/authenticate', user)
+                        .then(function(res) {
+                            self.$router.push('/dashboard');
+                        })
+                        .catch(function(err) {
+                            if(err.response.status) {
+                                switch(err.response.status) {
+                                    case 422:
+                                        if(err.response.data.errors) {
+                                            self.validateForm(err.response.data.errors);
+                                            alert(self.errors.join("\n"));
+                                        }
+                                        break;
+                                    case 401:
+                                        alert(err.response.data.error);
+                                        break;
+                                    default:
+                                        console.log("Undefined");
+                                        break;
+                                }
+                            } 
+                            self.errors = [];
+                        });
+                });
+                
             },
             // validateEmpty(user, self) {
 

@@ -13,6 +13,7 @@
                           <th scope="col">Title</th>
                           <th scope="col">Content</th>
                           <th scope="col">Link</th>
+                          <th scope="col">Users sent</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -23,9 +24,13 @@
                           <td>
                               <router-link :to="{path: linkItem + item.id}">Link</router-link>
                           </td>
+                          <td>
+                            <b-button v-b-modal.users_sent @click="getListUsersSent(item.id)">View</b-button>
+                          </td>
                       </tr>
                   </tbody>
               </table>
+
               <!-- <b-table
                   id="notifies-tbl"
                   :items="items"
@@ -46,6 +51,7 @@
                   </template>
               </b-pagination> -->
               <pagination-custom :current_page="currentPage" :per_page="perPage" :total_item="totalItem" :changePage="changePage" :items="items"></pagination-custom>
+              <modal-users-sent :list_user="listUser"></modal-users-sent>
           </div>
         </div>
       </div> 
@@ -53,12 +59,12 @@
   </div>
 </template>
 <style>
-.page-item .page-link {
-    padding: 0px;
-}
-.page-item a.page-link {
-    padding: 10px;
-}
+  .page-item .page-link {
+      padding: 0px;
+  }
+  .page-item a.page-link {
+      padding: 10px;
+  }
 </style>
 <script>
   export default {
@@ -85,17 +91,16 @@
       return {
         items: [],
         totalItem: 10,
-        currentPage: 2,
+        currentPage: 1,
         perPage: 3,
-        linkItem: '/notifies/'
+        linkItem: '/notifies/',
+        listUser: []
       }
     },
     methods: {
       changePage() {
         var self = this;
         var page = self.$route.query.page ? self.$route.query.page : self.currentPage;
-        // console.log(page);
-        // console.log(self.$route.query.page);
         axios.get(this.$_apiUrl + 'admin/notifies/list', {
               params: {
                   page: page
@@ -107,6 +112,25 @@
               self.totalItem = notifies.total;
               self.currentPage = notifies.current_page;
               console.log(self.items);
+          })
+          .catch(function(err) {
+              if(err.response.status) {
+                  // alert(err.response.data.message);
+                  self.$router.push('/dashboard');
+              } 
+          });
+      },
+      getListUsersSent(notifyId) {
+        var self = this;
+        axios.get(this.$_apiUrl + 'admin/notifies/users/list', {
+              params: {
+                  notify_id: notifyId
+              }
+          })
+          .then(function(res) {
+              var users = res.data;
+              self.listUser = users;
+              console.log(users);
           })
           .catch(function(err) {
               if(err.response.status) {

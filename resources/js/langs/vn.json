@@ -2,7 +2,8 @@
   "common": {
     "select_lang": "Trang thử nghiệm",
     "back_to_login": "Quay lại trang đăng nhập",
-    "to_notifies": "Sang trang danh sách thông báo",
+    "to_notifies": "Danh sách thông báo",
+    "create_notifies": "Tạo thông báo",
     "form_validation": {
       "errors": {
         "email_invalid": "Email không đúng định dạng",

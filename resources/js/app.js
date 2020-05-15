@@ -14,6 +14,8 @@ import { routes }  from './index';
 import i18n from './i18n';
 import store from './store';
 import auth from './auth';
+import firebase from 'firebase';
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -38,6 +40,7 @@ Vue.use(IconsPlugin)
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('app-header', require('./components/Header.vue').default);
 Vue.component('pagination-custom', require('./components/Pagination.vue').default);
+Vue.component('modal-users-sent', require('./components/Notify/ModalUsersSent.vue').default);
 
 // Set global variable
 Vue.prototype.$_apiUrl = '/api/';
@@ -67,6 +70,7 @@ router.beforeEach((to, from, next) => {
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 
 const app = new Vue({
     el: '#app',

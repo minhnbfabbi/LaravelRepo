@@ -3,6 +3,7 @@
     "select_lang": "テストページ",
     "back_to_login": "ログインページに戻る",
     "to_notifies": "通知リストページに移動",
+    "create_notifies": "回転してアラートページを作成",
     "form_validation": {
       "errors": {
         "email_invalid": "メールの形式が正しくありません",
