@@ -37,6 +37,7 @@ class PushNotification implements ShouldQueue
      */
     public function handle(INotificationService $notificationService)
     {
+        dd(":casc");
         call_user_func_array(
             [
                 $notificationService,

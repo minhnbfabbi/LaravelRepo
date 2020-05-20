@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5eb9eff0b19cbb836aa3386f3afc037",
+    "content-hash": "0ce7b0f8454f6caed1527808aad5e6cb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1419,16 +1419,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.68",
+            "version": "1.0.69",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "3e4198372276ec99ac3409a21d7c9d1ced9026e4"
+                "reference": "7106f78428a344bc4f643c233a94e48795f10967"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3e4198372276ec99ac3409a21d7c9d1ced9026e4",
-                "reference": "3e4198372276ec99ac3409a21d7c9d1ced9026e4",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/7106f78428a344bc4f643c233a94e48795f10967",
+                "reference": "7106f78428a344bc4f643c233a94e48795f10967",
                 "shasum": ""
             },
             "require": {
@@ -1505,7 +1505,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2020-05-12T20:33:44+00:00"
+            "time": "2020-05-18T15:13:39+00:00"
         },
         {
             "name": "martinlindhe/laravel-vue-i18n-generator",
@@ -4615,16 +4615,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.0.2",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "67f1677954ad33ca6b77f2c41cf43a58624f27fc"
+                "reference": "749fba7bf560fe2600ea55bf8734a7c9b8c30cfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/67f1677954ad33ca6b77f2c41cf43a58624f27fc",
-                "reference": "67f1677954ad33ca6b77f2c41cf43a58624f27fc",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/749fba7bf560fe2600ea55bf8734a7c9b8c30cfd",
+                "reference": "749fba7bf560fe2600ea55bf8734a7c9b8c30cfd",
                 "shasum": ""
             },
             "require": {
@@ -4633,7 +4633,7 @@
                 "facade/flare-client-php": "^1.0",
                 "facade/ignition-contracts": "^1.0",
                 "filp/whoops": "^2.4",
-                "illuminate/support": "^7.0",
+                "illuminate/support": "^7.0|^8.0",
                 "monolog/monolog": "^2.0",
                 "php": "^7.2.5",
                 "scrivo/highlight.php": "^9.15",
@@ -4682,7 +4682,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2020-03-18T19:20:44+00:00"
+            "time": "2020-05-18T15:20:13+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -4936,73 +4936,6 @@
             "homepage": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
             "abandoned": "php-parallel-lint/php-parallel-lint",
             "time": "2020-03-15T07:34:26+00:00"
-        },
-        {
-            "name": "lanin/laravel-api-debugger",
-            "version": "3.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mlanin/laravel-api-debugger.git",
-                "reference": "2474809b8c2b93389c2ed3fcc3a11ddd108768a5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mlanin/laravel-api-debugger/zipball/2474809b8c2b93389c2ed3fcc3a11ddd108768a5",
-                "reference": "2474809b8c2b93389c2ed3fcc3a11ddd108768a5",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": ">=5.4.0",
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "orchestra/testbench": ">=3.4.0",
-                "phpunit/phpunit": ">=5.7"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Lanin\\Laravel\\ApiDebugger\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "Debugger": "Lanin\\Laravel\\ApiDebugger\\Support\\Facade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Lanin\\Laravel\\ApiDebugger\\": "src/"
-                },
-                "files": [
-                    "src/Support/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maxim Lanin",
-                    "email": "max@lanin.me",
-                    "homepage": "http://lanin.me"
-                }
-            ],
-            "description": "Easily debug your JSON API.",
-            "keywords": [
-                "api",
-                "debug",
-                "debugger",
-                "dump",
-                "framework",
-                "json",
-                "laravel",
-                "log",
-                "queries"
-            ],
-            "time": "2019-10-31T08:33:08+00:00"
         },
         {
             "name": "mockery/mockery",

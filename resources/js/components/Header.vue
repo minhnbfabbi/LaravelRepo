@@ -1,34 +1,40 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <router-link :to="{path: '/'}" class="navbar-brand">{{ $t('header.title') }}</router-link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <router-link :to="{path: '/'}" class="navbar-brand">{{ $t('header.title') }}</router-link>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="auth-user mr-auto" v-if="checkAuth()">
-                <span>{{ $t('header.navigations.greeting') }}, {{ $store.state.username }}</span>
-                <router-link :to="{path: '/login'}" class="btn btn-link">{{ $t('header.navigations.logout') }}</router-link>
-                <router-link :to="{path: '/dashboard'}" class="btn btn-light" v-if="!checkDashBoardVisibleLink()">{{ $t('header.navigations.return_dashboard') }}</router-link>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="auth-user mr-auto" v-if="checkAuth()">
+                    <span>{{ $t('header.navigations.greeting') }}, {{ $store.state.username }}</span>
+                    <router-link :to="{path: '/login'}" class="btn btn-link">{{ $t('header.navigations.logout') }}</router-link>
+                    <router-link :to="{path: '/dashboard'}" class="btn btn-light" v-if="!checkDashBoardVisibleLink()">{{ $t('header.navigations.return_dashboard') }}</router-link>
+                </div>
+                <ul class="navbar-nav mr-auto" v-else>
+                    <!-- <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li> -->
+                   <!--  <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li> -->
+                    <li class="nav-item" v-for="navigation in navigations">
+                        <router-link :to="{path: navigation.link}" class="nav-link">{{ $t(navigation.text) }}</router-link>
+                    </li>
+                </ul>
+                <form action="#" class="form-inline mt-2 mt-md-0">
+                    <input type="text" class="form-control mr-sm-2">
+                    <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+                </form>
+                <div class="lang form-group my-2 my-lg-0">
+                    <select name="language" class="form-select form-control" @change="callSetLangActions($event)">
+                        <option v-for="lang in optionLangs" :value="lang.value">{{ lang.text }}</option>
+                    </select>
+                </div>
             </div>
-            <ul class="navbar-nav mr-auto" v-else>
-                <!-- <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li> -->
-               <!--  <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li> -->
-                <li class="nav-item" v-for="navigation in navigations">
-                    <router-link :to="{path: navigation.link}" class="nav-link">{{ $t(navigation.text) }}</router-link>
-                </li>
-            </ul>
-            <div class="lang form-group my-2 my-lg-0">
-                <select name="language" class="form-select form-control" @change="callSetLangActions($event)">
-                    <option v-for="lang in optionLangs" :value="lang.value">{{ lang.text }}</option>
-                </select>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </template>
 
 <script>
@@ -100,5 +106,10 @@
         margin-right: 20px;
         padding-left: 10px;
         border-left: 1px solid #adb5bd;
+    }
+    .lang {
+        position: fixed;
+        right: 13%;
+        top: 10px;
     }
 </style>

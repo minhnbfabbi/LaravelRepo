@@ -29,9 +29,10 @@ class FcmService implements INotificationService
      */
     public function sendNotification($data)
     {
+        dd("casc");
         $url = 'https://fcm.googleapis.com/fcm/send';
         $data = [
-            'to' => '/topics/' . $topicName,
+            'to' => '/topics/' . 'test',
             'notification' => [
                 'body' => $data['body'] ?? 'Something',
                 'title' => $data['title'] ?? 'Something',

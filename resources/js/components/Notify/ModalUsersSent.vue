@@ -1,6 +1,6 @@
 <template>
   <b-modal id="users_sent" title="BootstrapVue">
-    <table class="table" id="notifies-tbl">
+    <table class="table" id="notifies-tbl" v-if="(list_user.length > 0)">
       <thead class="thead-dark">
           <tr>
               <th scope="col">#</th>
@@ -18,6 +18,7 @@
           </tr>
       </tbody>
   </table>
+  <h3 v-else>Không có dữ liệu</h3>
   </b-modal>
 </template>
 <style>
