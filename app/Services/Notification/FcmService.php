@@ -27,31 +27,15 @@ class FcmService implements INotificationService
      * @param $data
      * @throws GuzzleException
      */
-    public function sendNotification($data)
+    public function sendNotification($params)
     {
-        dd("casc");
         $url = 'https://fcm.googleapis.com/fcm/send';
         $data = [
-            'to' => '/topics/' . 'test',
+            'to' => env('FIREBASE_TOKEN'),
             'notification' => [
-                'body' => $data['body'] ?? 'Something',
-                'title' => $data['title'] ?? 'Something',
-                'image' => $data['image'] ?? null,
-            ],
-            'data' => [
-                'url' => $data['url'] ?? null,
-                'redirect_to' => $data['redirect_to'] ?? null,
-            ],
-            'apns' => [
-                'payload' => [
-                    'aps' => [
-                        'mutable-content' => 1,
-                    ],
-                ],
-                'fcm_options' => [
-                    'image' => $data['image'] ?? null,
-                ], 
-            ],
+                'body' => $params['body'] ?? 'Something',
+                'title' => $params['title'] ?? 'Something',
+            ]
         ];
 
         $this->execute($url, $data);

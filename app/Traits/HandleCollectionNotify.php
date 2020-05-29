@@ -7,8 +7,10 @@ trait HandleCollectionNotify
 	public function getCollectionNotify($notify = [], $title = '') 
 	{
 		return [
-			'title' => $title,
-			'body' => $notify
+			'data' => [
+				'title' => $title,
+				'body' => $notify
+			]
 		];
 	}
 }

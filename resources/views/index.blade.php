@@ -21,6 +21,7 @@
         <main>
             <app-header></app-header>
             <router-view></router-view>
+            <notifications group="notifications-firebase" />
         </main>
     </div>
 

@@ -34,6 +34,7 @@
                 </div>
             </div>
         </nav>
+        
     </div>
 </template>
 
@@ -42,7 +43,6 @@
     export default {
         mounted() {
             FireBase.listenToFirebase();
-            console.log(this.$router.history.current.name);
         },
         data: function () {
             return {
@@ -86,7 +86,7 @@
             },
             checkDashBoardVisibleLink() {
                 return this.$store.state.dashboard_visible_link;
-            }
+            },
         },
     }
 </script>

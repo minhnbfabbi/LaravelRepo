@@ -8,13 +8,14 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import VueRouter from 'vue-router'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import VueRouter from 'vue-router';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import { routes }  from './index';
 import i18n from './i18n';
 import store from './store';
 import auth from './auth';
 import firebase from 'firebase';
+import Notifications from 'vue-notification';
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -26,6 +27,7 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
+Vue.use(Notifications)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -40,6 +42,7 @@ Vue.use(IconsPlugin)
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('app-header', require('./components/Header.vue').default);
 Vue.component('pagination-custom', require('./components/Pagination.vue').default);
+Vue.component('notification-popup', require('./components/NotifyPopup.vue').default);
 Vue.component('modal-users-sent', require('./components/Notify/ModalUsersSent.vue').default);
 
 // Set global variable

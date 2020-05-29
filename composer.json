@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.46",
+        "oscarafdev/migrations-generator": "^2.0",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {

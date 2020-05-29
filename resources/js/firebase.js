@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-
+import store from './store';
 const config = {
     apiKey: "AIzaSyB2wjB75LU_7Qg55Ms0kmfX3aySqA5g8A8",
     authDomain: "base-notification.firebaseapp.com",
@@ -21,6 +21,7 @@ const setToken = function(authenticate) {
 	        return messaging.getToken()
 	    })
 	    .then(function(token) {
+	    	console.log(token);
 	       	authenticate(token);
 	    })
 	    .catch(function (err) {
@@ -35,8 +36,9 @@ const deleteToken = function() {
 const listenToFirebase = function() {
 	messaging.onMessage((payload) => {
 		var notify = payload.notification;
-		alert(notify.title);
-		// console.log('Message received. ', payload);
+		// alert(notify.title);
+		console.log('Message received. ', payload);
+		store.dispatch('setNotification', notify);
 	});
 }
 

@@ -14,6 +14,14 @@ const mutations = {
 	},
 	SET_DASHBOARD_VISIBLE_LINK (state, payload) {
 		state.dashboard_visible_link = payload;
+	},
+	SET_NOTIFICATION (state, payload) {
+		state.notification = JSON.parse(payload.body);
+		app.$notify({
+			group: 'notifications-firebase',
+			title: state.notification.title,
+			text: state.notification.content
+        });
 	}
 }
 
@@ -26,6 +34,9 @@ const actions = {
 	},
 	setDashboardVisibleLink({commit}, payload) {
 		commit('SET_DASHBOARD_VISIBLE_LINK', payload);
+	},
+	setNotification({commit}, payload) {
+		commit('SET_NOTIFICATION', payload);
 	}
 }
 
@@ -33,7 +44,8 @@ export default new Vuex.Store({
 	state: {
 		auth: false,
 		username: '',
-		dashboard_visible_link: false
+		dashboard_visible_link: false,
+		notification: {}
 	},
 	mutations,
 	actions

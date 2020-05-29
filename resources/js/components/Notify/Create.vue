@@ -78,8 +78,8 @@
                             switch(err.response.status) {
                                 case 422:
                                     if(err.response.data.errors) {
-                                        self.validateForm(err.response.data.errors);
-                                        alert(self.errors.join("\n"));
+                                        // self.validateForm(err.response.data.errors);
+                                        // alert(self.errors.join("\n"));
                                     }
                                     break;
                                 case 401:

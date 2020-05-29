@@ -64,7 +64,7 @@ class NotifyController extends Controller
 
             $notify->find($notify->id)->users()->attach($users);
 
-            $this->dispatch(new PushNotification('sendNotification', $this->getCollectionNotify($notify, 'Test')));
+            $this->dispatch(new PushNotification('sendNotification', $this->getCollectionNotify($notify)));
             $this->dispatch(new SendNotifyEmail($notify));
 
         } catch (Exception $e) {
