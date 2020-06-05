@@ -38,3 +38,10 @@ Route::group(['middleware' => 'api', 'namespace' => 'Api', 'as' => 'api.'], func
 	});
 });
 
+Route::get('search', function() {
+    $query = 'title'; // <-- Change the query for testing.
+
+    $posts = App\Models\PostElasticsearch::search($query)->rule(App\Modules\Elasticsearch\Rules\SearchTitleRule::class)->explain();
+
+    return $posts;
+});

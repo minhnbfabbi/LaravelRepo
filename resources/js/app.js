@@ -8,12 +8,17 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+require('vue-axios-interceptors');
+
+window.axios = require('axios');
+
 import VueRouter from 'vue-router';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import { routes }  from './index';
 import i18n from './i18n';
 import store from './store';
 import auth from './auth';
+import interceptor from './interceptor';
 import firebase from 'firebase';
 import Notifications from 'vue-notification';
 
@@ -67,6 +72,8 @@ router.beforeEach((to, from, next) => {
 	store.dispatch('setDashboardVisibleLink', dashboardVisbleLink);
 	next();
 })
+
+interceptor.response();
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

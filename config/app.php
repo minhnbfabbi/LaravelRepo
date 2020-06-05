@@ -167,6 +167,8 @@ return [
          */
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         MartinLindhe\VueInternationalizationGenerator\GeneratorProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
+        ScoutElastic\ScoutElasticServiceProvider::class,
         /*
          * Application Service Providers...
          */
