@@ -8,5 +8,4 @@ trait HandleErrorApi {
 	{
 		return response()->json(['error' => $msg], $code);
 	}
-	
 }

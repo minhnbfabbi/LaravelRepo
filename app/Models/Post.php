@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Support\Jsonable;
 use ScoutElastic\Searchable;
-use App\Modules\Elasticsearch\PostIndexConfigurator;
+use App\EngineSearches\Elasticsearch\Config\PostIndexConfigurator;
 
 class Post extends Model implements Jsonable
 {

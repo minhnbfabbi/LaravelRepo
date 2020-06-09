@@ -25,6 +25,25 @@
 //   // 
 // });
 // 
+var requestStart = function() {
+	window.axios.interceptors.request.use(
+		(config) => {
+			// show loader, store instance
+			console.log("Start");
+			return config;
+		}
+	);
+}
+var requestFinish = function() {
+	window.axios.interceptors.response.use(
+		(response) => {
+			console.log("End");
+			// hide loader
+			return response;
+			
+		}
+	);
+}
 var response404 = function() {
 
 }
@@ -32,14 +51,17 @@ var response404 = function() {
 var responseCommon = function() {
 	// Listen for any intercepted responses.
 	window.intercepted.$on('response', data => {
-	  	console.log(data); 
+
 	});
 }
 
 var response = function() {
+	requestStart();
+	requestFinish();
 	response404();
 	responseCommon();
 }
+
 export default {
 	response
 }

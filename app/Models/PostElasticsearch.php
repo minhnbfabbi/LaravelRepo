@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use ScoutElastic\Searchable;
-use App\Modules\Elasticsearch\Rules\SearchTitleRule;
+use App\EngineSearches\Elasticsearch\Rules\SearchTitleRule;
+use App\EngineSearches\Elasticsearch\Config\PostIndexConfigurator;
 
 class PostElasticsearch extends Model
 {
@@ -14,7 +15,7 @@ class PostElasticsearch extends Model
     /**
      * @var string
      */
-    protected $indexConfigurator = \App\Modules\Elasticsearch\PostIndexConfigurator::class;
+    protected $indexConfigurator = PostIndexConfigurator::class;
 
     /**
      * @var array

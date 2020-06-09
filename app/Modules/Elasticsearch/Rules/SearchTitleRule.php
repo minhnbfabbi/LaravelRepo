@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Elasticsearch\Rules;
+namespace App\Modules\Elasticsearch;
 
 use ScoutElastic\SearchRule;
 
@@ -25,7 +25,6 @@ class SearchTitleRule extends SearchRule
      */
     public function buildQueryPayload()
     {
-        dd($this->builder->query);
         return [
             'must' => [
                 'match' => [

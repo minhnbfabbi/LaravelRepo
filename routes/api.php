@@ -19,7 +19,11 @@ use Illuminate\Support\Facades\Mail;
 //     return $request->user();
 // });
 
-Route::group(['middleware' => 'api', 'namespace' => 'Api', 'as' => 'api.'], function () {
+Route::group([
+	'middleware' => 'api', 
+	'namespace' => 'Api', 
+	'name' => 'api.'
+], function () {
 	Route::group(['namespace' => 'Auth'], function() {
 	    Route::post('authenticate', 'LoginController@authenticate')->name('authenticate');
 	    Route::post('register', 'RegisterController@create')->name('register');
@@ -27,21 +31,32 @@ Route::group(['middleware' => 'api', 'namespace' => 'Api', 'as' => 'api.'], func
 	    Route::get('check-auth', 'LoginController@checkAuth')->name('check_auth');
 		Route::get('home', 'LoginController@home')->name('home');
 	});
-	Route::group(['middleware' => 'auth:api', 'namespace' => 'Admin'], function() {
-		Route::group(['prefix' => 'admin/notifies', 'name' => 'admin.notify'], function() {
-			Route::get('create', 'NotifyController@create')->name('create');
-			Route::get('list', 'NotifyController@list')->name('list');
-			Route::post('store', 'NotifyController@store')->name('store');
-			Route::get('users/list', 'NotifyController@userList')->name('users.list');
+	Route::group(['middleware' => 'auth:api'], function() {
+		Route::group([
+			'prefix' => 'admin', 
+			'name' => 'admin.', 
+			'namespace' => 'Admin'
+		], function() {
+			Route::group([
+				'prefix' => 'notifies', 
+				'as' => 'notify.'
+			], function() {
+				Route::get('create', 'NotifyController@create')->name('create');
+				Route::get('list', 'NotifyController@list')->name('list');
+				Route::post('store', 'NotifyController@store')->name('store');
+				Route::get('users/list', 'NotifyController@userList')->name('users.list');
+			});
+			
+			Route::apiResource('posts', 'PostController')->except([
+				
+			]);
 		});
-		Route::get('notifies/{id}', 'NotifyController@show')->where('id', '[0-9]+')->name('notify.show');
+		Route::get('notifies/{id}', 'Admin\NotifyController@show')->where('id', '[0-9]+')->name('notify.show');
 	});
 });
 
 Route::get('search', function() {
-    $query = 'title'; // <-- Change the query for testing.
+    $posts = new App\Services\Post\PostService;
 
-    $posts = App\Models\PostElasticsearch::search($query)->rule(App\Modules\Elasticsearch\Rules\SearchTitleRule::class)->explain();
-
-    return $posts;
+    return $posts->get();
 });

@@ -21,18 +21,26 @@ import auth from './auth';
 import interceptor from './interceptor';
 import firebase from 'firebase';
 import Notifications from 'vue-notification';
+import { loadProgressBar } from 'axios-progress-bar';
+import NProgress from 'vue-nprogress';
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'axios-progress-bar/dist/nprogress.css'
+
+Vue.use(NProgress)
 
 Vue.use(VueRouter)
-
 // Install BootstrapVue
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
 Vue.use(Notifications)
+
+const nprogress = new NProgress({ parent: '.nprogress-container' })
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -65,16 +73,16 @@ router.beforeEach((to, from, next) => {
 	} else {
 		auth.setAuthEmpty();
 	}
-	var dashboardVisbleLink = false;
-	if(to.name == 'Dashboard') {
-		dashboardVisbleLink = true;
-	} 
+
+	var dashboardVisbleLink = (to.name == 'Dashboard') ? true : false;
+
 	store.dispatch('setDashboardVisibleLink', dashboardVisbleLink);
 	next();
 })
 
 interceptor.response();
 
+loadProgressBar();
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -86,7 +94,8 @@ const app = new Vue({
     el: '#app',
     router,
     i18n,
-    store: store
+    store: store,
+    // nprogress
 });
 
 export default app;

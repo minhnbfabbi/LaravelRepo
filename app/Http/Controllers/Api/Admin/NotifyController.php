@@ -25,9 +25,9 @@ class NotifyController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Notify $model)
     {
-        $this->model = new Notify;
+        $this->model = $model;
     }
 
     public function create(Request $request)
@@ -38,6 +38,7 @@ class NotifyController extends Controller
     public function store(CreateRequest $request)
     {
         $data = $request->validated();
+        
         $user = auth()->user();
 
         try {
