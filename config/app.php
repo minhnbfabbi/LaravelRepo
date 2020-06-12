@@ -169,6 +169,7 @@ return [
         MartinLindhe\VueInternationalizationGenerator\GeneratorProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         ScoutElastic\ScoutElasticServiceProvider::class,
+        Lanin\Laravel\ApiDebugger\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

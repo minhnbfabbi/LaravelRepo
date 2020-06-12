@@ -50,6 +50,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+        // dd($exception);
+        // foreach (config('exception.class') as $value) {
+        //     if($exception instanceof $value) {
+        //         $exceptionObj = new $value();
+        //         return $exceptionObj->render();
+        //     }
+        // }
+
         return parent::render($request, $exception);
     }
 }

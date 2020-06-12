@@ -106,7 +106,7 @@ class NotifyController extends Controller
 
     public function userList(Request $request)
     {
-        return $this->model
+        $usersRead = $this->model
             ->find($request->notify_id)
             ->users()
             ->get()
@@ -116,5 +116,7 @@ class NotifyController extends Controller
                 return $item;
             })
             ->toArray();
+
+        return response()->json(['users_read' => $usersRead], 200);  
     }
 }

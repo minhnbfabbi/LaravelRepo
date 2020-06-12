@@ -128,7 +128,7 @@
               }
           })
           .then(function(res) {
-              var users = res.data;
+              var users = res.data.users_read;
               self.listUser = users;
               console.log(users);
           })

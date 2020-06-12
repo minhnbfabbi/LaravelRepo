@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Http\Requests\Api\AuthenticateRequest;
+use App\Traits\HandleErrorApi;
 
 class LoginController extends Controller
 {
@@ -23,6 +24,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    use HandleErrorApi;
 
     /**
      * Where to redirect users after login.
@@ -59,6 +61,7 @@ class LoginController extends Controller
     
     public function checkAuth()
     {
+        // sleep(10);
         $auth = [
             'check' => false,
             'username' => ''
